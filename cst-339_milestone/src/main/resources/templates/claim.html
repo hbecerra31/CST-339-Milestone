@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+	<head>
+    	<title th:text="${title}">Default Title</title>
+	</head>
+	<body>
+    	<h2 th:text="${title}">Default Title</h2>
+    	<div layout:fragment="content">
+	    	<h1>*View all Claims*</h1>
+	    	 <!-- Claim Search Form -->
+        <form action="/claims/search" method="get">
+            <label for="claimNumber">Claim Number:</label>
+            <input type="text" id="claimNumber" name="claimNumber" placeholder="Enter Claim Number">
+            
+            <label for="claimAmount">Claim Amount:</label>
+            <input type="number" id="claimAmount" name="claimAmount" step="any">
+
+            <label for="claimDate">Claim Date:</label>
+            <input type="date" id="claimDate" name="claimDate">
+
+            <!-- Add more input fields if needed -->
+
+            <button type="submit">Search Claims</button>
+        </form>
+		</div>
+    </body>
+</html>
