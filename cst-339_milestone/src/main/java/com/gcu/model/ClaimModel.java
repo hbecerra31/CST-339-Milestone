@@ -9,7 +9,7 @@ import jakarta.validation.constraints.Positive;
 public class ClaimModel {
 
 	@NotBlank(message = "Claim ID cannot be blank")
-	private int claimId;
+	private Integer claimId;
 
 	@NotBlank(message = "Patient name cannot be blank")
 	private String patientName;
@@ -29,7 +29,7 @@ public class ClaimModel {
 	public ClaimModel() {
 	}
 
-	public ClaimModel(int claimId, String patientName, String diagnosis, LocalDate claimDate, double claimAmount) {
+	public ClaimModel(Integer claimId, String patientName, String diagnosis, LocalDate claimDate, double claimAmount) {
 		this.claimId = claimId;
 		this.patientName = patientName;
 		this.diagnosis = diagnosis;
@@ -39,11 +39,11 @@ public class ClaimModel {
 
 	// Getter and setter methods
 
-	public int getClaimId() {
+	public Integer getClaimId() {
 		return claimId;
 	}
 
-	public void setClaimId(int claimId) {
+	public void setClaimId(Integer claimId) {
 		this.claimId = claimId;
 	}
 
