@@ -1,10 +1,10 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <!-- Common Header Fragment -->
-<header th:fragment="header" class="d-flex flex-wrap align-items-center justify-content-center py-3 mb-4 border-bottom">
+<header th:fragment="header" class="hstack justify-content-center">
 
 
 	<!-- BootStrap Template -->
-	<div class="col-md-3 mb-2 mb-md-0">
+	<div class="col-md-3">
 		<a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
 			<img th:src="@{/images/healthclaimpro-logo.jpeg}" width="100" alt="Logo" />
 			<span>
@@ -12,9 +12,10 @@
 			</span>
 		</a>
 	</div>
-	<!-- NavBar2 
-       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-3"> -->
-	<div class="container-fluid">
+
+	<!-- NavBar -->
+	<ul class="nav col-md-auto justify-content-center">
+
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11"
 			aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -42,38 +43,13 @@
 					</ul>
 				</li>
 			</ul>
-			<div class="col-md-3 text-end">
+			<div class="col-3 text-end">
 				<button type="button" class="btn btn-primary" onclick="window.location.href='/login'">Login</button>
 				<button type="button" class="btn btn-primary"
 					onclick="window.location.href='/register'">Sign-up</button>
-
 			</div>
-			</ul>
-		</div>
+	</ul>
 	</div>
-
-
-	<!--
-      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-        <li><a href="#" class="nav-link px-2">Inquiry</a></li>
-        <li><a href="#" class="nav-link px-2">Claims</a></li>
-        <li><a href="#" class="nav-link px-2">Appeals</a></li>
-        <li><a href="#" class="nav-link px-2">FAQs</a></li>
-      </ul>
-
-      <div class="col-md-3 text-end">
-        <button type="button" class="btn btn-primary" onclick="window.location.href='/login'">Login</button>
-       <button type="button" class="btn btn-primary" onclick="window.location.href='/register'">Sign-up</button>
-
-      </div>
-		
-		
-		<!-- Original -->
-	<div align="center">
-		<h1>HealthClaimPro</h1>
-	</div>
-
 
 
 </header>
