@@ -2,13 +2,16 @@ package com.gcu.model;
 
 import java.time.LocalDate;
 
+
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Positive;
 
 public class ClaimModel {
 
-	@NotBlank(message = "Claim ID cannot be blank")
+	@NotNull (message = "Claim ID cannot be blank")
+	@Positive(message = "Claim ID must be a positive value")
 	private Integer claimId;
 
 	@NotBlank(message = "Patient name cannot be blank")
@@ -17,6 +20,7 @@ public class ClaimModel {
 	@NotBlank(message = "Diagnosis cannot be blank")
 	private String diagnosis;
 
+	@NotNull (message = "Claim date cannot be blank")
 	@PastOrPresent(message = "Claim date must be in the past or present")
 	private LocalDate claimDate;
 
