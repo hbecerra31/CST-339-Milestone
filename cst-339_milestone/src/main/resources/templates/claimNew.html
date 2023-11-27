@@ -8,11 +8,12 @@
 <body>
 	<h2 th:text="${title}">Default Title</h2>
 	<div layout:fragment="content">
-		<form class="row g-3 w-50" action="#" th:action="@{createClaim}" th:object="${claimModel}" method="post">
+		<h2>Please enter claim information</h2>
+		<form class="row g-3 w-50" action="#" th:action="@{/}" th:object="${claimModel}" method="post">
 			<div class="col-md-3 input-group">
 
 				<div class="form-floating">
-					<input type="text"th:field="*{claimId}" class="form-control " id="floatingInputClaimID" placeholder="Claim ID">
+					<input type="text" th:field="*{claimId}" class="form-control " id="floatingInputClaimID" placeholder="Claim ID">
 					<label for="floatingInputClaimID">Claim ID</label>
 				</div>
 				<div class="valid-feedback" th:if="${#fields.hasErrors('claimId')}" th:errors="*{claimId}">
@@ -22,29 +23,41 @@
 			<div class="col-md-3 input-group">
 
 				<div class="form-floating">
-					<input type="text" class="form-control" id="floatingInputPatientName" placeholder="Patient Name">
+					<input type="text" th:field="*{patientName}" class="form-control" id="floatingInputPatientName" placeholder="Patient Name">
 					<label for="floatingInputPatientName">Patient Name</label>
 				</div>
-			</div>
-			<div class="col-md-3 input-group">
-
-				<div class="form-floating">
-					<input type="text" class="form-control" id="floatingInputDiagnosis" placeholder="Diagnosis">
-					<label for="floatingInputDiagnosis">Diagnosis</label>
+				<div class="valid-feedback" th:if="${#fields.hasErrors('patientName')}" th:errors="*{patientName}">
+					Patient Name Error
 				</div>
 			</div>
 			<div class="col-md-3 input-group">
 
 				<div class="form-floating">
-					<input type="date" class="form-control" id="floatingInputClaimDate" placeholder="Claim Date">
+					<input type="text" th:field="*{diagnosis}" class="form-control" id="floatingInputDiagnosis" placeholder="Diagnosis">
+					<label for="floatingInputDiagnosis">Diagnosis</label>
+				</div>
+				<div class="valid-feedback" th:if="${#fields.hasErrors('diagnosis')}" th:errors="*{diagnosis}">
+					Diagnosis Error
+				</div>
+			</div>
+			<div class="col-md-3 input-group">
+
+				<div class="form-floating">
+					<input type="date" th:field="*{claimDate}" class="form-control" id="floatingInputClaimDate" placeholder="Claim Date">
 					<label for="floatingInputClaimDate">Claim Date</label>
+				</div>
+				<div class="valid-feedback" th:if="${#fields.hasErrors('claimDate')}" th:errors="*{claimDate}">
+					Claim Date Error
 				</div>
 			</div>
 			<div class="col-md-3 input-group">
 				<span class="input-group-text">$</span>
 				<div class="form-floating">
-					<input type="text" class="form-control" id="floatingInputClaimAmount" placeholder="Claim Amount">
+					<input type="text" th:field="*{claimAmount}" class="form-control" id="floatingInputClaimAmount" placeholder="Claim Amount">
 					<label for="floatingInputClaimAmount">Claim Amount</label>
+				</div>
+				<div class="valid-feedback" th:if="${#fields.hasErrors('claimAmount')}" th:errors="*{claimAmount}">
+					Claim Amount Error
 				</div>
 			</div>
 			<div class="col-md-12">

@@ -24,6 +24,7 @@ public class RegisterController {
 
 	@PostMapping("/registerUser")
 	public String registerUser(@Valid RegisterModel registerModel, BindingResult bindingResult, Model model) {
+		
 		// Check for validation errors
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("title", "Register Form");
@@ -33,6 +34,6 @@ public class RegisterController {
 		// For now, you can print the user details to the console
 		System.out.println(registerModel.toString());
 
-		return "index"; // Redirect to a success page
+		return "index"; 
 	}
 }
