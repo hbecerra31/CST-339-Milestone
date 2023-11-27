@@ -1,26 +1,65 @@
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
-	<head>
-    	<title th:text="${title}">Default Title</title>
-	</head>
-	<body>
-    	<h2 th:text="${title}">Default Title</h2>
-    	<div layout:fragment="content">
-	    	<h1>*View all Claims*</h1>
-	    	 <!-- Claim Search Form -->
-        <form action="/claims/search" method="get">
-            <label for="claimNumber">Claim Number:</label>
-            <input type="text" id="claimNumber" name="claimNumber" placeholder="Enter Claim Number">
-            
-            <label for="claimAmount">Claim Amount:</label>
-            <input type="number" id="claimAmount" name="claimAmount" step="any">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layouts/defaultTemplate">
 
-            <label for="claimDate">Claim Date:</label>
-            <input type="date" id="claimDate" name="claimDate">
+<head>
+	<title th:text="${title}">Default Title</title>
+</head>
 
-            <!-- Add more input fields if needed -->
+<body>
+	<h2 th:text="${title}">Default Title</h2>
+	<div layout:fragment="content">
 
-            <button type="submit">Search Claims</button>
-        </form>
-		</div>
-    </body>
+		<!-- Claim Search Form -->
+		<form action="/claims/search" method="get">
+			<label for="claimNumber">Claim Number:</label>
+			<input type="text" id="claimNumber" name="claimNumber" placeholder="Enter Claim Number">
+
+			<label for="claimAmount">Claim Amount:</label>
+			<input type="number" id="claimAmount" name="claimAmount" step="any">
+
+			<label for="claimDate">Claim Date:</label>
+			<input type="date" id="claimDate" name="claimDate">
+
+			<!-- Add more input fields if needed -->
+
+			<button type="submit">Search Claims</button>
+		</form>
+
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Claim ID</th>
+					<th>Patient Name</th>
+					<th>Diagnosis</th>
+					<th>Claim Date</th>
+					<th>Claim Amount</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:if="${claims.empty}">
+					<td>No Orders Available</td>
+				</tr>
+				<tr th:each="claim : ${claims}">
+					<td>
+						<h5 th:text="${claim.claimId}">1</h5>
+					</td>
+					<td>
+						<h5 th:text="${claim.patientName}">Product</h5>
+					</td>
+					<td>
+						<h5 th:text="${claim.diagnosis}">Routine Checkup</h5>
+					</td>
+					<td>
+						<h5 th:text="${claim.claimDate}">Local Date</h5>
+					</td>
+					<td>
+						<h5 th:text="${claim.claimAmount}">200.00</h5>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</body>
+
 </html>

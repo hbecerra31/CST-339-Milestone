@@ -28,6 +28,7 @@ public class ClaimController {
 		ModelAndView modelAndView = new ModelAndView("claim"); // Set the view name
 		modelAndView.addObject("title", "Claims");
 		modelAndView.addObject("claimModel", new ClaimModel());
+		modelAndView.addObject("claims", claims.findAll());
 		
 		for(ClaimModel c: claims.findAll()) {
 			System.out.println(c);
@@ -57,7 +58,10 @@ public class ClaimController {
 		// For now, you can print the user details to the console
 		System.out.println(claimModel.toString());
 		
+		claims.findAll().add(claimModel);
+		
 		model.addAttribute("title", "Claims");
+		model.addAttribute("claims", claims.findAll());
 		
 		return "claim"; 
 	}
