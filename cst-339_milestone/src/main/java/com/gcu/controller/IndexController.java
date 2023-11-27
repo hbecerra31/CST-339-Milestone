@@ -11,11 +11,11 @@ import com.gcu.model.IndexModel;
 @RequestMapping("/")
 public class IndexController {
 
-	@GetMapping("/")
+	@GetMapping("")
 	public String home(Model model) {
 		model.addAttribute("title", "Home");
 		model.addAttribute("homeModel", new IndexModel());
 		return "index";
-		
+
 	}
 }

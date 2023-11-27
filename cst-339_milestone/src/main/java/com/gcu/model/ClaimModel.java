@@ -2,80 +2,88 @@ package com.gcu.model;
 
 import java.time.LocalDate;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Positive;
+
 public class ClaimModel {
 
-	private String claimId;
-    private String patientName;
-    private String diagnosis;
-    private LocalDate claimDate;
-    private double claimAmount;
+	@NotBlank(message = "Claim ID cannot be blank")
+	private int claimId;
 
-    // Constructors, getters, and setters
+	@NotBlank(message = "Patient name cannot be blank")
+	private String patientName;
 
-    public ClaimModel() {
-        // Default constructor
-    }
+	@NotBlank(message = "Diagnosis cannot be blank")
+	private String diagnosis;
 
-    public ClaimModel(String claimId, String patientName, String diagnosis, LocalDate claimDate, double claimAmount) {
-        this.claimId = claimId;
-        this.patientName = patientName;
-        this.diagnosis = diagnosis;
-        this.claimDate = claimDate;
-        this.claimAmount = claimAmount;
-    }
+	@PastOrPresent(message = "Claim date must be in the past or present")
+	private LocalDate claimDate;
 
-    // Getter and setter methods
+	@Positive(message = "Claim amount must be a positive value")
+	private double claimAmount;
 
-    public String getClaimId() {
-        return claimId;
-    }
+	// Constructors
 
-    public void setClaimId(String claimId) {
-        this.claimId = claimId;
-    }
+	// Default constructor
+	public ClaimModel() {
+	}
 
-    public String getPatientName() {
-        return patientName;
-    }
+	public ClaimModel(int claimId, String patientName, String diagnosis, LocalDate claimDate, double claimAmount) {
+		this.claimId = claimId;
+		this.patientName = patientName;
+		this.diagnosis = diagnosis;
+		this.claimDate = claimDate;
+		this.claimAmount = claimAmount;
+	}
 
-    public void setPatientName(String patientName) {
-        this.patientName = patientName;
-    }
+	// Getter and setter methods
 
-    public String getDiagnosis() {
-        return diagnosis;
-    }
+	public int getClaimId() {
+		return claimId;
+	}
 
-    public void setDiagnosis(String diagnosis) {
-        this.diagnosis = diagnosis;
-    }
+	public void setClaimId(int claimId) {
+		this.claimId = claimId;
+	}
 
-    public LocalDate getClaimDate() {
-        return claimDate;
-    }
+	public String getPatientName() {
+		return patientName;
+	}
 
-    public void setClaimDate(LocalDate claimDate) {
-        this.claimDate = claimDate;
-    }
+	public void setPatientName(String patientName) {
+		this.patientName = patientName;
+	}
 
-    public double getClaimAmount() {
-        return claimAmount;
-    }
+	public String getDiagnosis() {
+		return diagnosis;
+	}
 
-    public void setClaimAmount(double claimAmount) {
-        this.claimAmount = claimAmount;
-    }
+	public void setDiagnosis(String diagnosis) {
+		this.diagnosis = diagnosis;
+	}
 
-    // toString method for better logging or debugging
+	public LocalDate getClaimDate() {
+		return claimDate;
+	}
 
-    @Override
-    public String toString() {
-        return "ClaimModel{" +
-                "claimId='" + claimId + '\'' +
-                ", patientName='" + patientName + '\'' +
-                ", diagnosis='" + diagnosis + '\'' +
-                ", claimDate=" + claimDate +
-                ", claimAmount=" + claimAmount +
-                '}';
-    }
+	public void setClaimDate(LocalDate claimDate) {
+		this.claimDate = claimDate;
+	}
+
+	public double getClaimAmount() {
+		return claimAmount;
+	}
+
+	public void setClaimAmount(double claimAmount) {
+		this.claimAmount = claimAmount;
+	}
+
+	// toString method for better logging or debugging
+
+	@Override
+	public String toString() {
+		return "ClaimModel{" + "claimId='" + claimId + '\'' + ", patientName='" + patientName + '\'' + ", diagnosis='"
+				+ diagnosis + '\'' + ", claimDate=" + claimDate + ", claimAmount=" + claimAmount + '}';
+	}
 }

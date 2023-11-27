@@ -14,27 +14,25 @@ import jakarta.validation.Valid;
 @Controller
 @RequestMapping("/register")
 public class RegisterController {
-	
-	@GetMapping("/")
-    public String showRegistrationForm(Model model) {
-		model.addAttribute("title", "Register Form");
-        model.addAttribute("registerModel", new RegisterModel());
-        return "register";
-    }
 
-    @PostMapping("/registerUser")
-    public String registerUser(@Valid RegisterModel registerModel, BindingResult bindingResult, Model model) {
-        // TODO: Validate user input and save to the database (implementation in Milestone 4)
-    	// Check for validation errors
-		 if (bindingResult.hasErrors()) {
-			 model.addAttribute("title", "Register Form");
-			 return "register";
-		 }
-    	
-    	
-    	// For now, you can print the user details to the console
-        System.out.println(registerModel.toString());
-        
-        return "index"; // Redirect to a success page
-    }
+	@GetMapping("")
+	public String display(Model model) {
+		model.addAttribute("title", "Register Form");
+		model.addAttribute("registerModel", new RegisterModel());
+		return "register";
+	}
+
+	@PostMapping("/registerUser")
+	public String registerUser(@Valid RegisterModel registerModel, BindingResult bindingResult, Model model) {
+		// Check for validation errors
+		if (bindingResult.hasErrors()) {
+			model.addAttribute("title", "Register Form");
+			return "register";
+		}
+
+		// For now, you can print the user details to the console
+		System.out.println(registerModel.toString());
+
+		return "index"; // Redirect to a success page
+	}
 }

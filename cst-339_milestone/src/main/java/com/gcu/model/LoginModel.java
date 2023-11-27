@@ -1,29 +1,42 @@
 package com.gcu.model;
 
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 public class LoginModel {
 
-	@NotNull(message="User name is a required field")
-	@Size(min=1, max=32, message="User name must be between 1 and 32 character")
+	@NotBlank(message = "User Name cannot be blank")
+	@Size(min = 1, max = 32, message = "User name must be between 1 and 32 character")
 	private String username;
-	
-	@NotNull(message="Password is a required field")
-	@Size(min=1, max=32, message="Password must be between 1 and 32 character")
+
+	@NotBlank(message = "Password cannot be blank")
+	@Size(min = 1, max = 32, message = "Password must be between 1 and 32 character")
 	private String password;
-	
+
+	// Constructors
+
+	// Getter and setter methods
+
 	public String getUsername() {
 		return username;
 	}
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
+	// toString method for better logging or debugging
+
+	@Override
+	public String toString() {
+		return "LoginModel{" + "username='" + username + '\'' + ", password='" + password + '\'' + '}';
+	}
 }
