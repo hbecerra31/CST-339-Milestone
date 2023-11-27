@@ -13,23 +13,23 @@
       <!-- NavBar2 
        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-3"> -->
       <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
-        </button>
+        </button> 
 
         <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
           <a class="navbar-brand col-lg-3 me-0" href="#">HealthClaimPro</a>
-          <ul class="navbar-nav col-lg-6 justify-content-lg-center">
-            <li class="nav-item">
+          <ul class="navbar-nav col-lg-6 justify-content-lg-center flex-row">
+            <li class="nav-item me-2">
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item me-2">
               <a class="nav-link" href="#">Appeals</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true">Inquiries</a>
+            <li class="nav-item me-2">
+              <a class="nav-link active" aria-disabled="false">Inquiries</a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown me-2">
               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Claims</a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">New Claim</a></li>
@@ -42,7 +42,6 @@
        <button type="button" class="btn btn-primary" onclick="window.location.href='/register'">Sign-up</button>
 
       </div>
-          </ul>
         </div>
       </div>
       
@@ -75,7 +74,7 @@
 	
 	<!-- Common Navbar Fragment -->
 	<nav th:fragment="nav" class="navbar navbar-default">
-				<!-- Brand and toggle get grouped for better mobile display -->
+				<!-- Brand and toggle get grouped for better mobile display 
 				<div class="navbar-header">
 					<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
 						<span class="sr-only">Toggle navigation</span>
