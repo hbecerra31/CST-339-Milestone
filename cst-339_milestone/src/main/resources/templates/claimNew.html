@@ -9,12 +9,43 @@
 	<h2 th:text="${title}">Default Title</h2>
 	<div layout:fragment="content">
 		<form>
-			<div class="input-group mb-3">
-				<span class="input-group-text">@</span>
+			<div class="input-group">
+
 				<div class="form-floating">
-					<input type="text" class="form-control" id="floatingInputGroup1" placeholder="Username">
-					<label for="floatingInputGroup1">Username</label>
+					<input type="text" class="form-control " id="floatingInputClaimID" placeholder="Claim ID">
+					<label for="floatingInputClaimID">Claim ID</label>
 				</div>
+			</div>
+			<div class="input-group">
+
+				<div class="form-floating">
+					<input type="text" class="form-control" id="floatingInputPatientName" placeholder="Patient Name">
+					<label for="floatingInputPatientName">Patient Name</label>
+				</div>
+			</div>
+			<div class="input-group">
+
+				<div class="form-floating">
+					<input type="text" class="form-control" id="floatingInputDiagnosis" placeholder="Diagnosis">
+					<label for="floatingInputDiagnosis">Diagnosis</label>
+				</div>
+			</div>
+			<div class="input-group">
+
+				<div class="form-floating">
+					<input type="date" class="form-control" id="floatingInputClaimDate" placeholder="Claim Date">
+					<label for="floatingInputClaimDate">Claim Date</label>
+				</div>
+			</div>
+			<div class="input-group">
+				<span class="input-group-text">$</span>
+				<div class="form-floating">
+					<input type="text" class="form-control" id="floatingInputClaimAmount" placeholder="Claim Amount">
+					<label for="floatingInputClaimAmount">Claim Amount</label>
+				</div>
+			</div>
+			<div class="col-12">
+				<button class="btn btn-primary" type="submit">Create Claim</button>
 			</div>
 		</form>
 
