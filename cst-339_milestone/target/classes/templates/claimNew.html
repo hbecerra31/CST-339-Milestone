@@ -1,12 +1,25 @@
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
-	<head>
-    	<title th:text="${title}">Default Title</title>
-	</head>
-	<body>
-    	<h2 th:text="${title}">Default Title</h2>
-    	<div layout:fragment="content">
-	    	<h1>*Create New Claim*</h1>
-	    	<h2>Test Line</h2>
-		</div>
-    </body>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layouts/defaultTemplate">
+
+<head>
+	<title th:text="${title}">Default Title</title>
+</head>
+
+<body>
+	<h2 th:text="${title}">Default Title</h2>
+	<div layout:fragment="content">
+		<form>
+			<div class="input-group mb-3">
+				<span class="input-group-text">@</span>
+				<div class="form-floating">
+					<input type="text" class="form-control" id="floatingInputGroup1" placeholder="Username">
+					<label for="floatingInputGroup1">Username</label>
+				</div>
+			</div>
+		</form>
+
+
+	</div>
+</body>
+
 </html>

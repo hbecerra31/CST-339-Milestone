@@ -1,6 +1,6 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 	<!-- Common Header Fragment -->
-	<header th:fragment="header" class="d-flex flex-wrap align-items-center justify-content-center py-3 mb-4 border-bottom">
+	<header th:fragment="header" class="hstack justify-content-center">
       
       
       <!-- BootStrap Template -->
@@ -10,15 +10,14 @@
           <span><h1>HealthClaimPro</h1></span>
         </a>
       </div>
-      <!-- NavBar2 
-       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-3"> -->
+      <!-- NavBar Start -->
       <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button> 
 
         <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
-          <a class="navbar-brand col-lg-3 me-0" href="#">HealthClaimPro</a>
+          <a class="navbar-brand col-lg-3 me-0" href="#"></a>
           <ul class="navbar-nav col-lg-6 justify-content-lg-center flex-row">
             <li class="nav-item me-2">
               <a class="nav-link active" aria-current="page" href="#">Home</a>
@@ -46,30 +45,7 @@
       </div>
       
       
-<!--
-      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-        <li><a href="#" class="nav-link px-2">Inquiry</a></li>
-        <li><a href="#" class="nav-link px-2">Claims</a></li>
-        <li><a href="#" class="nav-link px-2">Appeals</a></li>
-        <li><a href="#" class="nav-link px-2">FAQs</a></li>
-      </ul>
 
-      <div class="col-md-3 text-end">
-        <button type="button" class="btn btn-primary" onclick="window.location.href='/login'">Login</button>
-       <button type="button" class="btn btn-primary" onclick="window.location.href='/register'">Sign-up</button>
-
-      </div>
-		
-		
-		<!-- Original -->
-		<div align="center">
-			<h1>HealthClaimPro</h1>
-		</div>	
-		
-		<!-- Page Title and Log -->
-		<h2 th:text="${title}"> Default Message Text</h2><br/>
-		<img th:src="@{/images/healthclaimpro-logo.jpeg}" width="200px" alt="Logo"/><br/><br/>
 	</header>
 	
 	<!-- Common Navbar Fragment -->
@@ -167,28 +143,5 @@
     </div>
   </footer>
 </div>
-	
-	<!--- Footer Test2
-	<div class="container">
-	<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-    <div class="col-md-4 d-flex align-items-center">
-      <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
-        <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
-      </a>
-      <h5 style="color: purple; text-align: center; position: fixed; bottom: 0; width: 100%;">© 2023 HealthClaimPro Company. All Rights Reserved <br/>The HealthClaimPro Company is independent, non-existent, and locally operated company by GCU students.</h5>
-    </div>
 
-    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-      <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-      <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-      <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
-    </ul>
-  </footer>
-	</div>
-	
-	-Common Footer Fragment 1
-	<div th:fragment="footer">
-		<h5 style="color: purple; text-align: center; position: fixed; bottom: 0; width: 100%;">© 2023 HealthClaimPro Company. All Rights Reserved<br/>
-		The HealthClaimPro Company is independent, non-existent, and locally operated company by GCU students.</h5>
-	</div> -->
 </html>
