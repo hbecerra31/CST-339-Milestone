@@ -8,6 +8,10 @@ public class Cst339MilestoneApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Cst339MilestoneApplication.class, args);
+		
+		/**
+		 * Test
+		 */
 	}
 
 }
