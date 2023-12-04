@@ -22,7 +22,7 @@ public class LoginController {
 		return "login";
 	}
 
-	@PostMapping("/doLogin")
+	@PostMapping("")
 	public String doLogin(@Valid LoginModel loginModel, BindingResult bindingResult, Model model) {
 
 		// Check for validation errors

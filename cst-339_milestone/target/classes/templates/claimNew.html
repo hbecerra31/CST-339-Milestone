@@ -11,6 +11,7 @@
 	<div layout:fragment="content">
 		<h2>Please enter claim information</h2>
 		<form class="row g-3 w-50" action="#" th:action="@{/claims}" th:object="${claimModel}" method="post">
+			<!-- ClaimId not needed due to database auto increment
 			<div class="col-md-3 input-group">
 
 				<div class="form-floating">
@@ -23,6 +24,7 @@
 				</div>
 
 			</div>
+			-->
 			<div class="col-md-3 input-group">
 
 				<div class="form-floating">

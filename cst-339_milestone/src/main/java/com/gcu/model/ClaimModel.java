@@ -2,7 +2,6 @@ package com.gcu.model;
 
 import java.time.LocalDate;
 
-
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
@@ -10,9 +9,9 @@ import jakarta.validation.constraints.Positive;
 
 public class ClaimModel {
 
-	@NotNull (message = "Claim ID cannot be blank")
-	@Positive(message = "Claim ID must be a positive value")
-	private Integer claimId;
+	//@NotNull(message = "Claim ID cannot be blank")
+	//@Positive(message = "Claim ID must be a positive value")
+	private Long claimId;
 
 	@NotBlank(message = "Patient name cannot be blank")
 	private String patientName;
@@ -20,7 +19,7 @@ public class ClaimModel {
 	@NotBlank(message = "Diagnosis cannot be blank")
 	private String diagnosis;
 
-	@NotNull (message = "Claim date cannot be blank")
+	@NotNull(message = "Claim date cannot be blank")
 	@PastOrPresent(message = "Claim date must be in the past or present")
 	private LocalDate claimDate;
 
@@ -33,7 +32,7 @@ public class ClaimModel {
 	public ClaimModel() {
 	}
 
-	public ClaimModel(Integer claimId, String patientName, String diagnosis, LocalDate claimDate, double claimAmount) {
+	public ClaimModel(Long claimId, String patientName, String diagnosis, LocalDate claimDate, double claimAmount) {
 		this.claimId = claimId;
 		this.patientName = patientName;
 		this.diagnosis = diagnosis;
@@ -43,11 +42,11 @@ public class ClaimModel {
 
 	// Getter and setter methods
 
-	public Integer getClaimId() {
+	public Long getClaimId() {
 		return claimId;
 	}
 
-	public void setClaimId(Integer claimId) {
+	public void setClaimId(Long claimId) {
 		this.claimId = claimId;
 	}
 

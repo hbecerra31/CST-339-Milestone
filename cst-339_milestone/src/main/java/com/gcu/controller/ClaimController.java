@@ -1,7 +1,5 @@
 package com.gcu.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,9 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.gcu.business.ClaimsBusinessServiceInterface;
 import com.gcu.model.ClaimModel;
-import com.gcu.repository.ClaimCollectionRepository;
-
 import jakarta.validation.Valid;
 
 @Controller
@@ -21,18 +18,14 @@ import jakarta.validation.Valid;
 public class ClaimController {
 	
 	@Autowired
-	private ClaimCollectionRepository claims;
+	private ClaimsBusinessServiceInterface claims;
 	
 	@GetMapping("")
 	public ModelAndView display() {
 		ModelAndView modelAndView = new ModelAndView("claim"); // Set the view name
 		modelAndView.addObject("title", "Claims");
-		modelAndView.addObject("claimModel", new ClaimModel());
-		modelAndView.addObject("claims", claims.findAll());
 		
-		for(ClaimModel c: claims.findAll()) {
-			System.out.println(c);
-		}
+		modelAndView.addObject("claims", claims.getClaims());
 		
 		return modelAndView;
 	}
@@ -41,6 +34,7 @@ public class ClaimController {
 	public ModelAndView newClaim() {
 		ModelAndView modelAndView = new ModelAndView("claimNew"); // Set the view name
 		modelAndView.addObject("title", "New Claim");
+		
 		modelAndView.addObject("claimModel", new ClaimModel());
 				
 		return modelAndView;
@@ -54,21 +48,17 @@ public class ClaimController {
 			model.addAttribute("title", "New Claim");
 			return "claimNew";
 		}
-
-		// For now, you can print the user details to the console
-		System.out.println(claimModel.toString());
 		
-		claims.findAll().add(claimModel);
+		// Create claim and add to database
+		claims.createClaim(claimModel);
 		
+		// Return to Claims view
 		model.addAttribute("title", "Claims");
-		model.addAttribute("claims", claims.findAll());
+		model.addAttribute("claims", claims.getClaims());
 		
 		return "claim"; 
 	}
 	
-	
-	public List<ClaimModel> findAll() {
-		return claims.findAll();
-	}
+
 
 }
