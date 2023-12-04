@@ -5,7 +5,7 @@
 	<body>
 		<h2 th:text="${title}">Default Title</h2>
 		<div layout:fragment="content">
-			<form action="#" th:action="@{registerUser}" th:object="${registerModel}" method="post">
+			<form action="#" th:action="@{/register}" th:object="${registerModel}" method="post">
 			    <table>
     <tr>
         <td><label>First Name:</label></td>

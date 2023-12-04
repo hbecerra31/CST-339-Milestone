@@ -66,17 +66,17 @@ public class ClaimsDataService implements DataAccessInterface<ClaimEntity> {
 	 * CRUD: create an entity
 	 */
 	@Override
-	public boolean create(ClaimEntity claims) {
+	public boolean create(ClaimEntity claim) {
 		// Example of "overriding" the CrudRepository save() because it simple is never called
 		// You can inject a dataSource and use the jdbcTemplate to provide a customized implementation of a save() method
 		String sql = "INSERT INTO CLAIMS(PATIENT_NAME, DIAGNOSIS, CLAIM_DATE, CLAIM_AMOUNT) VALUES(?, ?, ?, ?)";
 		try {
 			// Execute SQL Insert
 			jdbcTemplateObject.update(sql, 
-									  claims.getPatientName(),
-									  claims.getDiagnosis(), 
-									  claims.getClaimDate(),
-									  claims.getClaimAmount());
+									  claim.getPatientName(),
+									  claim.getDiagnosis(), 
+									  claim.getClaimDate(),
+									  claim.getClaimAmount());
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
@@ -85,13 +85,13 @@ public class ClaimsDataService implements DataAccessInterface<ClaimEntity> {
 	}
 
 	@Override
-	public boolean update(ClaimEntity claims) {
+	public boolean update(ClaimEntity claim) {
 		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
-	public boolean delete(ClaimEntity claims) {
+	public boolean delete(ClaimEntity claim) {
 		// TODO Auto-generated method stub
 		return true;
 	}

@@ -7,6 +7,8 @@ import jakarta.validation.constraints.Size;
 
 public class RegisterModel {
 
+	private Long userId;
+
 	@NotBlank(message = "First Name cannot be blank")
 	@Size(min = 1, max = 32, message = "First Name must be between 1 and 32 character")
 	private String firstName;
@@ -34,7 +36,29 @@ public class RegisterModel {
 
 	// Constructors
 
-	// Getter and setter methods
+	public RegisterModel() {
+
+	}
+
+	public RegisterModel(Long userId, String firstName, String lastName, String email, String phoneNumber,
+			String username, String password) {
+		this.userId = userId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
+		this.username = username;
+		this.password = password;
+	}
+
+// Getter and setter methods
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
 
 	public String getFirstName() {
 		return firstName;
