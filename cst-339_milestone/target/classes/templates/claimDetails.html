@@ -1,0 +1,86 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layouts/defaultTemplate">
+
+<head>
+	<title th:text="${title}">Default Title</title>
+
+	<script>
+		function enableFields() {
+			// Enable all input fields (except claimNumber)
+			$("#claimForm input:not(#claimNumber)").prop("disabled", false);
+
+			// Enable the Update button
+			$("#updateButton").prop("disabled", false);
+
+		}
+		// Submit the form when Update button is clicked
+		$("#updateButton").on("click", function () {
+			$("#claimForm").submit();
+		});
+	</script>
+</head>
+
+<body>
+	<h2 th:text="${title}">Default Title</h2>
+
+	<div layout:fragment="content">
+
+		<div th:if="${claimModel != null}" class="card">
+			<div class="card-header">
+				<h4 class="card-title" th:text="${claimModel.claimId}">Claim Id</h4>
+			</div>
+			<div class="card-body">
+				<form id="claimForm" action="#" th:action="@{/claims/update}" th:object="${claimModel}" method="post">
+					<input type="hidden" id="claimId" name="claimId" th:value="${claimModel.claimId}" />
+					
+					<dl class="row">
+						<dt class="col-sm-3">Patient Name:</dt>
+						<dd class="col-sm-9">
+							<input type="text" class="form-control" id="patientName" name="patientName"
+								th:value="${claimModel.patientName}" disabled>
+						</dd>
+
+						<dt class="col-sm-3">Diagnosis:</dt>
+						<dd class="col-sm-9">
+							<input type="text" class="form-control" id="diagnosis" name="diagnosis"
+								th:value="${claimModel.diagnosis}" disabled>
+						</dd>
+
+						<dt class="col-sm-3">Claim Date:</dt>
+						<dd class="col-sm-9">
+							<input type="date" class="form-control" id="claimDate" name="claimDate"
+								th:value="${claimModel.claimDate}" disabled>
+						</dd>
+
+						<dt class="col-sm-3">Claim Amount:</dt>
+						<dd class="col-sm-9">
+							<input type="text" class="form-control" id="claimAmount" name="claimAmount"
+								th:value="${claimModel.claimAmount}" disabled>
+						</dd>
+					</dl>
+					<button type="button" class="btn btn-primary" onclick="enableFields()">Edit</button>
+					<button type="submit" class="btn btn-success" id="updateButton" disabled>Update</button>
+				</form>
+
+				<!-- Delete button with confirmation prompt -->
+				<form th:action="@{/claims/delete}" method="get"
+					onsubmit="return confirm('Are you sure you want to delete this claim?')">
+					<input type="hidden" name="claimId" th:value="${claimModel.claimId}">
+					<button type="submit" class="btn btn-danger">Delete</button>
+				</form>
+			</div>
+		</div>
+
+		<div th:if="${claimModel == null}" class="alert alert-danger mt-3">
+			<p th:text="${errorMessage}">Claim not found</p>
+		</div>
+
+		<a th:href="@{/claims}" class="btn btn-primary mt-3">Back to Claims</a>
+
+
+	</div>
+
+</body>
+
+
+</html>

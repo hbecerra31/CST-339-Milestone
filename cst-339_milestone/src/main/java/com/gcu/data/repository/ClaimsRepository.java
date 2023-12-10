@@ -7,11 +7,17 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.gcu.entity.ClaimEntity;
 
+/**
+ * Repository interface for accessing and managing ClaimEntity instances in the database.
+ */
 public interface ClaimsRepository extends CrudRepository<ClaimEntity, Long> {
 
-	// Example of truly overriding a method from the CrudRepository and using our
-	// own customized SQL
-	@Override
-	@Query(value = "SELECT * FROM CLAIMS")
-	public List<ClaimEntity> findAll();
+    /**
+     * Overrides the default findAll method to use a custom SQL query.
+     *
+     * @return A list of all ClaimEntity instances in the database.
+     */
+    @Override
+    @Query(value = "SELECT * FROM CLAIMS")
+    public List<ClaimEntity> findAll();
 }
