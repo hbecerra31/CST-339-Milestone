@@ -1,0 +1,80 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layouts/defaultTemplate">
+
+<head>
+	<title th:text="${title}">Default Title</title>
+</head>
+
+<body>
+	<h2 th:text="${title}">Default Title</h2>
+	<div layout:fragment="content">
+
+		<div class="containter">
+			<div class="row align-items-center">
+				<a class="col-2 btn btn-primary" href="/claims/newClaim">New Claim</a>
+
+				<!-- Claim Search Form -->
+				<form class="col hstack mx-3" action="#" th:action="@{/claims/view}" method="get">
+					<div class="form-floating mx-3">
+						<input type="number" class="form-control" id="claimNumber" name="claimNumber" placeholder="Claim Number" required>
+						<label for="claimNumber">Claim Number</label>
+					</div>
+
+					<!-- Removed for now ....
+					<div class="form-floating mx-3">
+						<input type="number" class="form-control" id="claimAmount" placeholder="Claim Amount"
+							step="any">
+						<label for="claimAmount">Claim Amount</label>
+					</div>
+
+					<div class="form-floating mx-3">
+						<input type="date" class="form-control" id="claimDate" placeholder="Claim Date">
+						<label for="claimDate">Claim Date</label>
+					</div>
+					-->
+
+					<!-- Add more input fields if needed -->
+
+					<button class="btn btn-outline-primary" type="submit">Search Claims</button>
+				</form>
+			</div>
+		</div>
+
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Claim ID</th>
+					<th>Patient Name</th>
+					<th>Diagnosis</th>
+					<th>Claim Date</th>
+					<th>Claim Amount</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:if="${claims.empty}">
+					<td>No Orders Available</td>
+				</tr>
+				<tr th:each="claim : ${claims}">
+					<td>
+						<h5 th:text="${claim.claimId}">1</h5>
+					</td>
+					<td>
+						<h5 th:text="${claim.patientName}">Product</h5>
+					</td>
+					<td>
+						<h5 th:text="${claim.diagnosis}">Routine Checkup</h5>
+					</td>
+					<td>
+						<h5 th:text="${claim.claimDate}">Local Date</h5>
+					</td>
+					<td>
+						<h5 th:text="${claim.claimAmount}">200.00</h5>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</body>
+
+</html>

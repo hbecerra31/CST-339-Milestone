@@ -65,6 +65,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>cst339milestone</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

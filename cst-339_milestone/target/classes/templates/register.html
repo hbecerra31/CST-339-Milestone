@@ -1,53 +1,91 @@
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
-	<head>
-	    <title th:text="${title}">Default Title</title>
-	</head>
-	<body>
-		<h2 th:text="${title}">Default Title</h2>
-		<div layout:fragment="content">
-			<form action="#" th:action="@{/register}" th:object="${registerModel}" method="post">
-			    <table>
-    <tr>
-        <td><label>First Name:</label></td>
-        <td><input type="text" th:field="*{firstName}" /></td>
-        <td><h5 style="color: red;" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First name Error</h5></td>
-    </tr>
-    <tr>
-        <td><label>Last Name:</label></td>
-        <td><input type="text" th:field="*{lastName}" /></td>
-        <td><h5 style="color: red;" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last name Error</h5></td>
-    </tr>
-    <tr>
-        <td><label>Email:</label></td>
-        <td><input type="text" th:field="*{email}" /></td>
-        <td><h5 style="color: red;" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</h5></td>
-    </tr>
-    <tr>
-        <td><label>Phone Number:</label></td>
-        <td><input type="text" th:field="*{phoneNumber}" /></td>
-        <td><h5 style="color: red;" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">Phone Number Error</h5></td>
-    </tr>
-    <tr>
-        <td><label>Username:</label></td>
-        <td><input type="text" th:field="*{username}" /></td>
-        <td><h5 style="color: red;" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">User Name Error</h5></td>
-    </tr>
-    <tr>
-        <td><label>Password:</label></td>
-        <td><input type="password" th:field="*{password}" /></td>
-        <td><h5 style="color: red;" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</h5></td>
-    </tr>
-    <tr>
-        <td colspan="3"><button type="submit">Register</button></td>
-    </tr>
-</table>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layouts/defaultTemplate">
 
-			    
-			    <div th:if="${#fields.hasErrors('*')}">List of Errors</div>
-				<div th:each="err : ${#fields.errors('*')}">
-					<span style="color:red" th:text="${err}" class="fieldError"></span>
+<head>
+	<title th:text="${title}">Default Title</title>
+</head>
+
+<body>
+	<h2 th:text="${title}">Default Title</h2>
+	<div layout:fragment="content">
+		<form class="row g-3 w-50" action="#" th:action="@{/register/create}" th:object="${registerModel}" method="post">
+
+			<div class="col-md-3 input-group">
+				<div class="form-floating">
+					<input type="text" th:field="*{firstName}" class="form-control" id="floatingInputFirstName"
+						placeholder="First Name">
+					<label for="floatingInputFirstName">First Name</label>
+					<div style="color: red;" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">
+						First Name Error
+					</div>
 				</div>
-			</form>
-		</div>
-	</body>
+			</div>
+
+			<div class="col-md-3 input-group">
+				<div class="form-floating">
+					<input type="text" th:field="*{lastName}" class="form-control" id="floatingInputLastName"
+						placeholder="Last Name">
+					<label for="floatingInputLastName">Last Name</label>
+					<div style="color: red;" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">
+						Last Name Error
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-3 input-group">
+				<div class="form-floating">
+					<input type="text" th:field="*{email}" class="form-control" id="floatingInputEmail"
+						placeholder="Email">
+					<label for="floatingInputEmail">Email</label>
+					<div style="color: red;" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+						Email Error
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-3 input-group">
+				<div class="form-floating">
+					<input type="text" th:field="*{phoneNumber}" class="form-control" id="floatingInputPhoneNumber"
+						placeholder="Phone Number">
+					<label for="floatingInputPhoneNumber">Phone Number</label>
+					<div style="color: red;" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">
+						Phone Number Error
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-3 input-group">
+				<div class="form-floating">
+					<input type="text" th:field="*{username}" class="form-control" id="floatingInputUsername"
+						placeholder="Username">
+					<label for="floatingInputUsername">Username</label>
+					<div style="color: red;" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">
+						Username Error
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-3 input-group">
+				<div class="form-floating">
+					<input type="text" th:field="*{password}" class="form-control" id="floatingInputPassword"
+						placeholder="Password">
+					<label for="floatingInputPassword">Password</label>
+					<div style="color: red;" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">
+						Password Error
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-12">
+				<button class="btn btn-primary w-100" type="submit">Register</button>
+			</div>
+
+			<div th:if="${#fields.hasErrors('*')}">List of Errors</div>
+			<div th:each="err : ${#fields.errors('*')}">
+				<span style="color:red" th:text="${err}" class="fieldError"></span>
+			</div>
+		</form>
+	</div>
+</body>
+
 </html>

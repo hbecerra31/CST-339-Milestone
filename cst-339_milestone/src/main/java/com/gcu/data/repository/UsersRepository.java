@@ -7,13 +7,17 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.gcu.entity.UserEntity;
 
-
-
+/**
+ * Repository interface for accessing and managing UserEntity instances in the database.
+ */
 public interface UsersRepository extends CrudRepository<UserEntity, Long> {
 
-	// Example of truly overriding a method from the CrudRepository and using our
-	// own customized SQL
-	@Override
-	@Query(value = "SELECT * FROM USERS")
-	public List<UserEntity> findAll();
+    /**
+     * Overrides the default findAll method to use a custom SQL query.
+     *
+     * @return A list of all UserEntity instances in the database.
+     */
+    @Override
+    @Query(value = "SELECT * FROM USERS")
+    public List<UserEntity> findAll();
 }
