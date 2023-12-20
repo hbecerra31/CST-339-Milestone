@@ -8,7 +8,7 @@ import jakarta.validation.constraints.Size;
 /**
  * Model class representing user registration information.
  */
-public class RegisterModel {
+public class UserModel {
 
     private Long userId;
 
@@ -42,7 +42,7 @@ public class RegisterModel {
     /**
      * Default constructor for RegisterModel.
      */
-    public RegisterModel() {
+    public UserModel() {
     }
 
     /**
@@ -56,7 +56,7 @@ public class RegisterModel {
      * @param username     The username.
      * @param password     The password.
      */
-    public RegisterModel(Long userId, String firstName, String lastName, String email, String phoneNumber,
+    public UserModel(Long userId, String firstName, String lastName, String email, String phoneNumber,
                          String username, String password) {
         this.userId = userId;
         this.firstName = firstName;

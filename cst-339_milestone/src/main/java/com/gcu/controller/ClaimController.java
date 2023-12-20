@@ -121,7 +121,7 @@ public class ClaimController {
      * @return Redirects to the claims view.
      */
     @GetMapping("/delete")
-    public ModelAndView deleteClaim(@RequestParam(name = "claimId") int claimId) {
+    public ModelAndView deleteClaim(@RequestParam int claimId) {
     	ModelAndView modelAndView = new ModelAndView();
     	claims.deleteClaimById(claimId);
     	modelAndView.setViewName("redirect:/claims");
