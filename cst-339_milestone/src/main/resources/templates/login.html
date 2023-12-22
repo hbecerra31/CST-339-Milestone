@@ -8,37 +8,27 @@
 <body>
 	<h2 th:text="${title}">Default Title</h2>
 	<div layout:fragment="content">
-		<form class="row g-3 w-50" action="#" th:action="@{/login}" th:object="${loginModel}" method="post">
+		<div th:if="${param.error}">
+			Invalid User Name
+		</div>
+		<form class="row g-3 w-50" th:action="@{/login}" method="post">
 
 			<div class="col-md-3 input-group">
 				<div class="form-floating">
-					<input type="text" th:field="*{username}" class="form-control" id="floatingInputUsername"
-						placeholder="Username">
+					<input type="text" class="form-control" name="username" id="floatingInputUsername" placeholder="Username" required>
 					<label for="floatingInputUsername">Username</label>
-					<div style="color: red;" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">
-						Username Error
-					</div>
 				</div>
 			</div>
 
 			<div class="col-md-3 input-group">
 				<div class="form-floating">
-					<input type="text" th:field="*{password}" class="form-control" id="floatingInputPassword"
-						placeholder="Password">
+					<input type="password" class="form-control" name="password" id="floatingInputPassword" placeholder="Password" required>
 					<label for="floatingInputPassword">Password</label>
-					<div style="color: red;" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">
-						Password Error
-					</div>
 				</div>
 			</div>
 
 			<div class="col-md-12">
-				<button class="btn btn-primary w-100" type="submit">Register</button>
-			</div>
-
-			<div th:if="${#fields.hasErrors('*')}">List of Errors</div>
-			<div th:each="err : ${#fields.errors('*')}">
-				<span style="color:red" th:text="${err}" class="fieldError"></span>
+				<button class="btn btn-primary w-100" type="submit">Login</button>
 			</div>
 		</form>
 	</div>

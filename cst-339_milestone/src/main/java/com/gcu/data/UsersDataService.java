@@ -6,6 +6,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.sql.init.dependency.DependsOnDatabaseInitialization;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +16,9 @@ import com.gcu.entity.UserEntity;
 /**
  * Service class for performing CRUD operations on UserEntity using Spring Data.
  */
+@DependsOnDatabaseInitialization
 @Service
-public class UsersDataService implements DataAccessInterface<UserEntity> {
+public class UsersDataService implements DataAccessInterface<UserEntity>, UsersDataAccessInterface<UserEntity> {
 
     @Autowired
     private UsersRepository usersRepository;
@@ -123,4 +125,9 @@ public class UsersDataService implements DataAccessInterface<UserEntity> {
         // TODO: Implement delete logic if needed
         return true;
     }
+
+	@Override
+	public UserEntity findByUsername(String username) {
+		return usersRepository.findByUsername(username);
+	}
 }

@@ -75,12 +75,18 @@
 					</ul>
 				</li>
 			</ul>
-			<div class="col-md-3 text-end">
-				<button type="button" class="btn btn-primary" onclick="window.location.href='/login'">Login</button>
-				<button type="button" class="btn btn-primary"
-					onclick="window.location.href='/register'">Sign-up</button>
+			<ul class="nav navbar-nav navbar-right">
+				<li><button type="button" class="btn btn-primary" onclick="window.location.href='/login'">Login</button></li>
+			<ul class="nav navbar-nav navbar-right">
+				<li><form th:action="@{/logout}" method="POST">
+					<input class="btn btn-primary" type="submit" value="Logout" />
+				</form></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><button type="button" class="btn btn-primary"
+					onclick="window.location.href='/register'">Sign-up</button></li>
 
-			</div>
+			</ul>
 		</div>
 	</div>
 

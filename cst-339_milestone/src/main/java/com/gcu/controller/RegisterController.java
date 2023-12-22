@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gcu.business.UserBusinessService;
-import com.gcu.model.RegisterModel;
+import com.gcu.model.UserModel;
 
 import jakarta.validation.Valid;
 
@@ -32,7 +32,7 @@ public class RegisterController {
     public ModelAndView display() {
         ModelAndView modelAndView = new ModelAndView("register"); // Set the view name
         modelAndView.addObject("title", "Register Form");
-        modelAndView.addObject("registerModel", new RegisterModel());
+        modelAndView.addObject("registerModel", new UserModel());
         return modelAndView;
     }
 
@@ -44,7 +44,7 @@ public class RegisterController {
      * @return The ModelAndView for redirecting to the index page on successful registration.
      */
     @PostMapping("/create")
-    public ModelAndView registerUser(@Valid RegisterModel registerModel, BindingResult bindingResult) {
+    public ModelAndView registerUser(@Valid UserModel registerModel, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
 
         // Check for validation errors

@@ -16,15 +16,24 @@ import jakarta.validation.Valid;
  * Controller class for handling login-related requests.
  */
 @Controller
-@RequestMapping("/login")
+//@RequestMapping("/login")
 public class LoginController {
 
+	@GetMapping("/login")
+	public String display(Model model) {
+		// Display Login Form View
+		model.addAttribute("title", "Login Form");
+		return "login";
+	}
+
+	
     /**
      * Displays the login form.
      *
      * @param model The model to be populated with data.
      * @return The ModelAndView for the login form.
      */
+	/*
     @GetMapping("")
     public ModelAndView display(Model model) {
         ModelAndView modelAndView = new ModelAndView("login");
@@ -32,6 +41,7 @@ public class LoginController {
         modelAndView.addObject("loginModel", new LoginModel());
         return modelAndView;
     }
+    */
 
     /**
      * Processes the login form submission.
@@ -40,6 +50,7 @@ public class LoginController {
      * @param bindingResult   The result of the binding and validation.
      * @return The ModelAndView for the next view based on the result of form submission.
      */
+	/*
     @PostMapping("")
     public ModelAndView doLogin(@Valid LoginModel loginModel, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
@@ -58,4 +69,5 @@ public class LoginController {
         modelAndView.setViewName("redirect:/");
         return modelAndView;
     }
+    */
 }
