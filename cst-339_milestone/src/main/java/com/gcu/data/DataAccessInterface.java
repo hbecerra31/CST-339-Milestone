@@ -22,7 +22,7 @@ public interface DataAccessInterface<T> {
      * @param id The unique identifier of the entity.
      * @return The entity with the specified identifier, or null if not found.
      */
-    public T findById(int id);
+    public T findById(String id);
 
     /**
      * Creates a new entity in the data source.
@@ -46,5 +46,5 @@ public interface DataAccessInterface<T> {
      * @param t The entity to be deleted.
      * @return True if the entity was successfully deleted, false otherwise.
      */
-    public boolean delete(int id);
+    public boolean delete(T t);
 }

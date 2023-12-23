@@ -8,7 +8,7 @@
 <body>
 	<h2 th:text="${title}">Default Title</h2>
 	<div layout:fragment="content">
-		<form class="row g-3 w-50" action="#" th:action="@{/register/create}" th:object="${registerModel}" method="post">
+		<form class="row g-3 w-50" action="#" th:action="@{/register/create}" th:object="${userModel}" method="post">
 
 			<div class="col-md-3 input-group">
 				<div class="form-floating">

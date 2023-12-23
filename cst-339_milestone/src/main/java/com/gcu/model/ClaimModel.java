@@ -12,149 +12,171 @@ import jakarta.validation.constraints.Positive;
  */
 public class ClaimModel {
 
-    //@NotNull(message = "Claim ID cannot be blank")
-    //@Positive(message = "Claim ID must be a positive value")
-    private Long claimId;
+	private String id;
 
-    @NotBlank(message = "Patient name cannot be blank")
-    private String patientName;
+	private int claimId;
 
-    @NotBlank(message = "Diagnosis cannot be blank")
-    private String diagnosis;
+	@NotBlank(message = "Patient name cannot be blank")
+	private String patientName;
 
-    @NotNull(message = "Claim date cannot be blank")
-    @PastOrPresent(message = "Claim date must be in the past or present")
-    private LocalDate claimDate;
+	@NotBlank(message = "Diagnosis cannot be blank")
+	private String diagnosis;
 
-    @Positive(message = "Claim amount must be a positive value")
-    private double claimAmount;
+	@NotNull(message = "Claim date cannot be blank")
+	@PastOrPresent(message = "Claim date must be in the past or present")
+	private LocalDate claimDate;
 
-    /**
-     * Default constructor.
-     */
-    public ClaimModel() {
-    }
+	@Positive(message = "Claim amount must be a positive value")
+	private double claimAmount;
 
-    /**
-     * Parameterized constructor to initialize the claim entity.
-     *
-     * @param claimId     The ID of the claim.
-     * @param patientName The name of the patient.
-     * @param diagnosis   The diagnosis associated with the claim.
-     * @param claimDate   The date of the claim.
-     * @param claimAmount The amount claimed.
-     */
-    public ClaimModel(Long claimId, String patientName, String diagnosis, LocalDate claimDate, double claimAmount) {
-        this.claimId = claimId;
-        this.patientName = patientName;
-        this.diagnosis = diagnosis;
-        this.claimDate = claimDate;
-        this.claimAmount = claimAmount;
-    }
+	/**
+	 * Default constructor.
+	 */
+	public ClaimModel() {
 
-    /**
-     * Gets the claim ID.
-     *
-     * @return The claim ID.
-     */
-    public Long getClaimId() {
-        return claimId;
-    }
+	}
 
-    /**
-     * Sets the claim ID.
-     *
-     * @param claimId The claim ID to set.
-     */
-    public void setClaimId(Long claimId) {
-        this.claimId = claimId;
-    }
+	/**
+	 * Parameterized constructor to initialize the claim entity.
+	 *
+	 * @param id          The ID of the Document
+	 * @param claimId     The ID of the claim.
+	 * @param patientName The name of the patient.
+	 * @param diagnosis   The diagnosis associated with the claim.
+	 * @param claimDate   The date of the claim.
+	 * @param claimAmount The amount claimed.
+	 */
+	public ClaimModel(String id, int claimId, String patientName, String diagnosis, LocalDate claimDate,
+			double claimAmount) {
+		this.id = id;
+		this.claimId = claimId;
+		this.patientName = patientName;
+		this.diagnosis = diagnosis;
+		this.claimDate = claimDate;
+		this.claimAmount = claimAmount;
+	}
 
-    /**
-     * Gets the patient name.
-     *
-     * @return The patient name.
-     */
-    public String getPatientName() {
-        return patientName;
-    }
+	/**
+	 * Gets the Document ID.
+	 * 
+	 * @return
+	 */
+	public String getId() {
+		return id;
+	}
 
-    /**
-     * Sets the patient name.
-     *
-     * @param patientName The patient name to set.
-     */
-    public void setPatientName(String patientName) {
-        this.patientName = patientName;
-    }
+	/**
+	 * Sets the Document ID.
+	 * 
+	 * @param id
+	 */
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    /**
-     * Gets the diagnosis.
-     *
-     * @return The diagnosis.
-     */
-    public String getDiagnosis() {
-        return diagnosis;
-    }
+	/**
+	 * Gets the claim ID.
+	 *
+	 * @return The claim ID.
+	 */
+	public int getClaimId() {
+		return claimId;
+	}
 
-    /**
-     * Sets the diagnosis.
-     *
-     * @param diagnosis The diagnosis to set.
-     */
-    public void setDiagnosis(String diagnosis) {
-        this.diagnosis = diagnosis;
-    }
+	/**
+	 * Sets the claim ID.
+	 *
+	 * @param claimId The claim ID to set.
+	 */
+	public void setClaimId(int claimId) {
+		this.claimId = claimId;
+	}
 
-    /**
-     * Gets the claim date.
-     *
-     * @return The claim date.
-     */
-    public LocalDate getClaimDate() {
-        return claimDate;
-    }
+	/**
+	 * Gets the patient name.
+	 *
+	 * @return The patient name.
+	 */
+	public String getPatientName() {
+		return patientName;
+	}
 
-    /**
-     * Sets the claim date.
-     *
-     * @param claimDate The claim date to set.
-     */
-    public void setClaimDate(LocalDate claimDate) {
-        this.claimDate = claimDate;
-    }
+	/**
+	 * Sets the patient name.
+	 *
+	 * @param patientName The patient name to set.
+	 */
+	public void setPatientName(String patientName) {
+		this.patientName = patientName;
+	}
 
-    /**
-     * Gets the claim amount.
-     *
-     * @return The claim amount.
-     */
-    public double getClaimAmount() {
-        return claimAmount;
-    }
+	/**
+	 * Gets the diagnosis.
+	 *
+	 * @return The diagnosis.
+	 */
+	public String getDiagnosis() {
+		return diagnosis;
+	}
 
-    /**
-     * Sets the claim amount.
-     *
-     * @param claimAmount The claim amount to set.
-     */
-    public void setClaimAmount(double claimAmount) {
-        this.claimAmount = claimAmount;
-    }
+	/**
+	 * Sets the diagnosis.
+	 *
+	 * @param diagnosis The diagnosis to set.
+	 */
+	public void setDiagnosis(String diagnosis) {
+		this.diagnosis = diagnosis;
+	}
 
-    /**
-     * Overrides the default toString method for better logging or debugging.
-     *
-     * @return A string representation of the ClaimModel.
-     */
-    @Override
-    public String toString() {
-        return "ClaimModel{" +
-                "claimId='" + claimId + '\'' +
-                ", patientName='" + patientName + '\'' +
-                ", diagnosis='" + diagnosis + '\'' +
-                ", claimDate=" + claimDate +
-                ", claimAmount=" + claimAmount +
-                '}';
-    }
+	/**
+	 * Gets the claim date.
+	 *
+	 * @return The claim date.
+	 */
+	public LocalDate getClaimDate() {
+		return claimDate;
+	}
+
+	/**
+	 * Sets the claim date.
+	 *
+	 * @param claimDate The claim date to set.
+	 */
+	public void setClaimDate(LocalDate claimDate) {
+		this.claimDate = claimDate;
+	}
+
+	/**
+	 * Gets the claim amount.
+	 *
+	 * @return The claim amount.
+	 */
+	public double getClaimAmount() {
+		return claimAmount;
+	}
+
+	/**
+	 * Sets the claim amount.
+	 *
+	 * @param claimAmount The claim amount to set.
+	 */
+	public void setClaimAmount(double claimAmount) {
+		this.claimAmount = claimAmount;
+	}
+
+	/**
+	 * Overrides the default toString method for better logging or debugging.
+	 *
+	 * @return A string representation of the ClaimModel.
+	 */
+	@Override
+	public String toString() {
+		return "ClaimModel{" + 
+							"id='" + id + '\'' + 
+							", claimId='" + claimId + '\'' + 
+							", patientName='" + patientName+ '\'' + 
+							", diagnosis='" + diagnosis + '\'' + 
+							", claimDate=" + claimDate + 
+							", claimAmount=" + claimAmount + '}';
+	}
 }

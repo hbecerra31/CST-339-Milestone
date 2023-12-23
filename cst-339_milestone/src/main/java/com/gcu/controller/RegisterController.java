@@ -32,7 +32,7 @@ public class RegisterController {
     public ModelAndView display() {
         ModelAndView modelAndView = new ModelAndView("register"); // Set the view name
         modelAndView.addObject("title", "Register Form");
-        modelAndView.addObject("registerModel", new UserModel());
+        modelAndView.addObject("userModel", new UserModel());
         return modelAndView;
     }
 
@@ -44,7 +44,7 @@ public class RegisterController {
      * @return The ModelAndView for redirecting to the index page on successful registration.
      */
     @PostMapping("/create")
-    public ModelAndView registerUser(@Valid UserModel registerModel, BindingResult bindingResult) {
+    public ModelAndView registerUser(@Valid UserModel userModel, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
 
         // Check for validation errors
@@ -55,10 +55,10 @@ public class RegisterController {
         }
 
         // Create a user and add to the database
-        users.createUser(registerModel);
+        users.createUser(userModel);
 
         // For now, you can print the user details to the console
-        System.out.println(registerModel.toString());
+        System.out.println(userModel.toString());
 
         // Redirect to the index page
         modelAndView.setViewName("redirect:/");

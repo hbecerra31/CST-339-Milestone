@@ -25,11 +25,25 @@ public class UserRestService {
 		return service.getUsers();
 	}
 	
-	@GetMapping(path="/{id}")
-	public ResponseEntity<?> getUser(@PathVariable("id") int id){
+	@GetMapping(path="/id/{id}")
+	public ResponseEntity<?> getUserById(@PathVariable("id") String id){
 		
 		try {
 			UserModel user = service.getUserById(id);
+			if (user == null)
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			else
+				return new ResponseEntity<>(user, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@GetMapping(path="/username/{username}")
+	public ResponseEntity<?> getUserByUsername(@PathVariable("username") String username){
+		
+		try {
+			UserModel user = service.getUserByUsername(username);
 			if (user == null)
 				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			else

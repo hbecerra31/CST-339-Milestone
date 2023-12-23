@@ -34,10 +34,23 @@ public class ClaimsRestService {
 	}
 	*/
 	
-	@GetMapping(path="/{id}")
-	public ResponseEntity<?> getClaim(@PathVariable("id") int id){
+	@GetMapping(path="/id/{id}")
+	public ResponseEntity<?> getClaimById(@PathVariable("id") String id){
 		try {
 			ClaimModel claim = service.getClaimById(id);
+			if(claim ==null)
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			else
+				return new ResponseEntity<>(claim, HttpStatus.OK);
+		}catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@GetMapping(path="/claimid/{id}")
+	public ResponseEntity<?> getClaim(@PathVariable("id") int id){
+		try {
+			ClaimModel claim = service.getClaimByClaimId(id);
 			if(claim ==null)
 				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			else

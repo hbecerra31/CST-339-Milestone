@@ -86,7 +86,7 @@ public class ClaimController {
 		modelAndView.addObject("title", "Claim Details");
 
 		// Fetch the specific claim by its ID
-		ClaimModel claimModel = claims.getClaimById(claimId);
+		ClaimModel claimModel = claims.getClaimByClaimId(claimId);
 
 		// Check if the claim exists
 		if (claimModel == null) {
@@ -121,9 +121,9 @@ public class ClaimController {
      * @return Redirects to the claims view.
      */
     @GetMapping("/delete")
-    public ModelAndView deleteClaim(@RequestParam int claimId) {
+    public ModelAndView deleteClaim(@ModelAttribute ClaimModel claimModel) {
     	ModelAndView modelAndView = new ModelAndView();
-    	claims.deleteClaimById(claimId);
+    	claims.deleteClaim(claimModel);
     	modelAndView.setViewName("redirect:/claims");
         return modelAndView;
     }

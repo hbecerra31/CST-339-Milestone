@@ -22,21 +22,24 @@ public interface ClaimsBusinessServiceInterface {
     public List<ClaimModel> getClaims();
 
     /**
-     * Creates a new claim.
-     *
-     * @param claimModel The ClaimModel object to be created.
-     */
-    public void createClaim(ClaimModel claimModel);
-
-    /**
      * Retrieves a specific claim by its ID.
      *
      * @param claimId The ID of the claim to retrieve.
      * @return The ClaimModel object with the specified ID.
      */
-    public ClaimModel getClaimById(int claimId);
+    public ClaimModel getClaimById(String id);
+    
+    public ClaimModel getClaimByClaimId(int claimId);
+    
 
     /**
+	 * Creates a new claim.
+	 *
+	 * @param claimModel The ClaimModel object to be created.
+	 */
+	public void createClaim(ClaimModel claimModel);
+
+	/**
      * Updates an existing claim.
      *
      * @param claimModel The ClaimModel object to be updated.
@@ -48,7 +51,7 @@ public interface ClaimsBusinessServiceInterface {
      *
      * @param claimId The ID of the claim to delete.
      */
-    public void deleteClaimById(int claimId);
+    public void deleteClaim(ClaimModel claimModel);
 
     /**
      * Initialization method.
