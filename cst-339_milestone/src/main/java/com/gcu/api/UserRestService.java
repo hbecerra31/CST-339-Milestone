@@ -1,4 +1,4 @@
-package com.gcu.business;
+package com.gcu.api;
 
 import java.util.List;
 
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.gcu.business.UserBusinessService;
 import com.gcu.model.UserModel;
 
 @RestController
@@ -19,15 +20,23 @@ public class UserRestService {
 
 	@Autowired
 	private UserBusinessService service;
-	
-	@GetMapping(path="", produces= {MediaType.APPLICATION_JSON_VALUE})
-	public List<UserModel> getUsersAsJson() {
-		return service.getUsers();
+
+	@GetMapping(path = "", produces = { MediaType.APPLICATION_JSON_VALUE })
+	public ResponseEntity<?> getAllUsers() {
+		try {
+			List<UserModel> users = service.getUsers();
+			if (users.isEmpty())
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			else
+				return new ResponseEntity<>(users, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
-	
-	@GetMapping(path="/id/{id}")
-	public ResponseEntity<?> getUserById(@PathVariable("id") String id){
-		
+
+	@GetMapping(path = "/id={id}")
+	public ResponseEntity<?> getUserById(@PathVariable("id") String id) {
+
 		try {
 			UserModel user = service.getUserById(id);
 			if (user == null)
@@ -38,10 +47,10 @@ public class UserRestService {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
-	@GetMapping(path="/username/{username}")
-	public ResponseEntity<?> getUserByUsername(@PathVariable("username") String username){
-		
+
+	@GetMapping(path = "/username={username}")
+	public ResponseEntity<?> getUserByUsername(@PathVariable("username") String username) {
+
 		try {
 			UserModel user = service.getUserByUsername(username);
 			if (user == null)
