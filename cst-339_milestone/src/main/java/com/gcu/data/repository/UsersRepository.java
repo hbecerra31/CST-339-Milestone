@@ -9,5 +9,11 @@ import com.gcu.entity.UserEntity;
  */
 public interface UsersRepository extends MongoRepository<UserEntity, String> {
 
+	/**
+	 * Finds the User Entity by the username
+	 * 
+	 * @param username the user's username
+	 * @return The User Entity
+	 */
 	public UserEntity findByUsername(String username);
 }

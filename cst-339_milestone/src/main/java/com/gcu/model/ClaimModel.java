@@ -59,7 +59,7 @@ public class ClaimModel {
 	/**
 	 * Gets the Document ID.
 	 * 
-	 * @return
+	 * @return the Document ID
 	 */
 	public String getId() {
 		return id;
@@ -68,7 +68,7 @@ public class ClaimModel {
 	/**
 	 * Sets the Document ID.
 	 * 
-	 * @param id
+	 * @param id Document ID
 	 */
 	public void setId(String id) {
 		this.id = id;

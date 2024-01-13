@@ -70,9 +70,9 @@ public class ClaimsDataService implements DataAccessInterface<ClaimEntity>, Clai
 	}
 
 	/**
-	 * Retrieves a single ClaimEntity record based on its claim ID
+	 * Retrieves a single ClaimEntity record based on its claim ID.
 	 * 
-	 * @param claimId The Claim ID.
+	 * @param claimId The claim ID.
 	 * @return The ClaimEntity record with the specified identifier, or null if not
 	 *         found.
 	 */
@@ -87,7 +87,7 @@ public class ClaimsDataService implements DataAccessInterface<ClaimEntity>, Clai
 	}
 
 	/**
-	 * s Creates a new ClaimEntity record in the data source.
+	 * Creates a new ClaimEntity record in the data source.
 	 *
 	 * @param claim The ClaimEntity record to be created.
 	 * @return True if the ClaimEntity record was successfully created, false

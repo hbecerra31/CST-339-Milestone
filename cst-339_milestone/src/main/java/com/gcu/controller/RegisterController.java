@@ -15,6 +15,10 @@ import jakarta.validation.Valid;
 
 /**
  * Controller class for handling user registration operations.
+ * This class defines methods to display the user registration form and
+ * handle the submission of the registration form.
+ * 
+ * @author Hugo Becerra
  */
 @Controller
 @RequestMapping("/register")
@@ -39,8 +43,8 @@ public class RegisterController {
     /**
      * Handles the submission of the user registration form.
      *
-     * @param registerModel   The model representing the registration form.
-     * @param bindingResult   The result of the binding and validation.
+     * @param userModel      The model representing the registration form.
+     * @param bindingResult  The result of the binding and validation.
      * @return The ModelAndView for redirecting to the index page on successful registration.
      */
     @PostMapping("/create")

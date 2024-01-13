@@ -10,6 +10,12 @@ import com.gcu.entity.ClaimEntity;
  */
 public interface ClaimsRepository extends MongoRepository<ClaimEntity, String> {
 
+	/**
+	 * Finds the Claim by the claim ID
+	 * 
+	 * @param claimId The claim ID to find
+	 * @return The Claim Entity
+	 */
 	public ClaimEntity findByClaimId(int claimId);
 
 }

@@ -6,6 +6,9 @@ import com.gcu.model.ClaimModel;
 
 /**
  * The interface for the Claims Business Service, providing methods for managing claims.
+ * This interface outlines the operations that can be performed on claims.
+ * 
+ * @author Hugo Becerra
  */
 public interface ClaimsBusinessServiceInterface {
 
@@ -24,22 +27,27 @@ public interface ClaimsBusinessServiceInterface {
     /**
      * Retrieves a specific claim by its ID.
      *
-     * @param claimId The ID of the claim to retrieve.
+     * @param id The ID of the claim to retrieve.
      * @return The ClaimModel object with the specified ID.
      */
     public ClaimModel getClaimById(String id);
-    
-    public ClaimModel getClaimByClaimId(int claimId);
-    
 
     /**
-	 * Creates a new claim.
-	 *
-	 * @param claimModel The ClaimModel object to be created.
-	 */
-	public void createClaim(ClaimModel claimModel);
+     * Retrieves a specific claim by its claim ID.
+     *
+     * @param claimId The claim ID of the claim to retrieve.
+     * @return The ClaimModel object with the specified claim ID.
+     */
+    public ClaimModel getClaimByClaimId(int claimId);
 
-	/**
+    /**
+     * Creates a new claim.
+     *
+     * @param claimModel The ClaimModel object to be created.
+     */
+    public void createClaim(ClaimModel claimModel);
+
+    /**
      * Updates an existing claim.
      *
      * @param claimModel The ClaimModel object to be updated.
@@ -49,7 +57,7 @@ public interface ClaimsBusinessServiceInterface {
     /**
      * Deletes a claim.
      *
-     * @param claimId The ID of the claim to delete.
+     * @param claimModel The ClaimModel object representing the claim to delete.
      */
     public void deleteClaim(ClaimModel claimModel);
 

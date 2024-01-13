@@ -77,7 +77,7 @@ public class UserModel {
 	/**
 	 * Sets the user ID.
 	 *
-	 * @param userId The user ID to set.
+	 * @param id The user ID to set.
 	 */
 	public void setId(String id) {
 		this.id = id;

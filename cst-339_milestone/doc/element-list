@@ -1,0 +1,8 @@
+com.gcu
+com.gcu.api
+com.gcu.business
+com.gcu.controller
+com.gcu.data
+com.gcu.data.repository
+com.gcu.entity
+com.gcu.model

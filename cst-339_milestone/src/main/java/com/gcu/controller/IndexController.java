@@ -9,6 +9,9 @@ import com.gcu.model.IndexModel;
 
 /**
  * Controller class for handling requests related to the home page.
+ * This class defines a method to handle the GET request for the home page.
+ * 
+ * @author Hugo Becerra
  */
 @Controller
 @RequestMapping("/")
