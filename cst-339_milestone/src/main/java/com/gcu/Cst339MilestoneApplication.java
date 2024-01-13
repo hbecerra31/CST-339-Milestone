@@ -10,6 +10,5 @@ public class Cst339MilestoneApplication {
 		SpringApplication.run(Cst339MilestoneApplication.class, args);
 	}
 
-	
-	// Test compare
+
 }
